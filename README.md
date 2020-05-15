@@ -15,12 +15,12 @@ Results of the code:
 ********************
 The code will generate the following directories:
 1. /HSV/ --> Original images converted to HSV color space
-2. /<color>/Contour --> Contouring with no restrictions 
-3. /<color>/ContourAll --> Contouring with a restriction
-4. /<color>/ContourRect -->  Contouring using bounding boxes
-5. /<color>/Mask --> Binary images from color thresholding application
-6. /<color>/Only --> Colorized images of binary images
-7. /<color>/Removed --> Results from removing colors by most dominant to least dominant
+2. /color/Contour --> Contouring with no restrictions 
+3. /color/ContourAll --> Contouring with a restriction
+4. /color/ContourRect -->  Contouring using bounding boxes
+5. /color/Mask --> Binary images from color thresholding application
+6. /color/Only --> Colorized images of binary images
+7. /color/Removed --> Results from removing colors by most dominant to least dominant
 
 In total, 43 directories will be created.
 
