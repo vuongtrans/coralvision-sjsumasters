@@ -5,10 +5,9 @@ This project utilizes two computer vision techniques - color thresholding and co
 
 To run this code:
 *****************
-1. This code runs better on Python 3
+1. This code runs on Python 3
 2. Install the following Python libraries: numpy, OpenCV, matplotlib, os, time 
-3. Place images into a folder /images and place in the same directory as this Python file
-   /images/
+3. Place images into the /images/ directory before running the Python file
 4. Execute the code by issuing: python3 coral-vision-sjsu-masters.py
 
 Results of the code:
@@ -22,7 +21,7 @@ The code will generate the following directories:
 6. /color/Only --> Colorized images of binary images
 7. /color/Removed --> Results from removing colors by most dominant to least dominant
 
-In total, 43 directories will be created.
+In total, 43 directories will be created. For each color, directories #2-6 will be created.
 
 In addition, an elapsed time will be printed at the end of the code execution.
 "Elapsed time in seconds: <###>"
