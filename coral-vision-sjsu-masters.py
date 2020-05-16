@@ -206,6 +206,10 @@ def calculatePixelsByColor(img):
 
     return sorted_pixel_counts
 
+# TODO: Save bounding box as an image using the generated coordinates
+# def saveBoundingBox(img, coordinates)
+#     return img
+
 def main():
     """ Calls various functions to convert, threshold, and contour images """
 
@@ -260,9 +264,11 @@ def main():
                 ('Grey', (0, 0, 20), (180, 50, 255))
             ]
 
+            # Get number of colors
             length = len(sorted_pixel_counts)
             images = []
             final_image = ''
+            # Apply color thresholding and contouring for each color
             for i in range(length):
 
                 print ('>>> Begin: Color Thresholding <<<')
@@ -275,6 +281,7 @@ def main():
                 # Get original image
                 if final_image == '':
                     img1 = img
+                # Otherwise use current version of original image
                 else:
                     img1 = cv2.imread(final_image)
                 hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
