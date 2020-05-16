@@ -26,5 +26,8 @@ In total, 43 directories will be created. For each color, directories #2-6 will 
 In addition, an elapsed time will be printed at the end of the code execution.
 "Elapsed time in seconds: <###>"
   
-^^ TODO: Improve the creation of directories to make it cleaner
-         Create sub-images for each bounding boxes generated
+TODOs:
+******
+1. Improve the creation of directories to make it cleaner
+2. Create sub-images for each bounding boxes generated
+3. Allow user to select directory
