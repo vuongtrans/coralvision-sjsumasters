@@ -26,7 +26,7 @@ def calculateGreyPixels(img):
             if k[0] >= 0 and k[0] <= 180 and k[1] >= 0 and k[1] <= 50 and k[2] >= 20 and k[2] <= 150:
                 color_Grey = color_Grey + 1
             if k[0] >= 0 and k[0] <= 180 and k[1] >= 0 and k[1] <= 50 and k[2] >= 151 and k[2] <= 255:
-                color_Grey = color_Grey + 1
+                color_GreyNonPlate = color_GreyNonPlate + 1
             color_All = color_All + 1
         # End FOR J loop
     # End FOR I loop
@@ -40,14 +40,16 @@ def calculateGreyPixels(img):
     print ("The amount of plate that is unoccupied is " + str(grey_pixels))
 
     pixel_counts = []
-    pixel_counts.append(('Grey', 10.0))
+    pixel_counts.append(('Plate', 10.0))
+    pixel_counts.append(('Table', 5.0))
 
     return pixel_counts
 
 def main():
     # Thresholds for grey pixels
     gray_threshold = [
-        ('Grey', (0, 0, 20), (180, 50, 150))
+        ('Plate', (0, 0, 20), (180, 50, 150)),
+        ('Table', (0, 0, 151), (180, 50, 255))
     ]
 
     # Get current working directory and work with images in desired directory
@@ -85,9 +87,7 @@ def main():
                 mask = cv2.inRange(hsv, hsv_lower, hsv_higher)
                 saveImageToFile(mask, img_name, img_extension, current_color+"-Mask", directory_to_save)
                 res = cv2.bitwise_and(result, result, mask = mask)
-                res_inverted = cv2.bitwise_not(result, result, mask = mask)
                 saveImageToFile(res, img_name, img_extension, current_color+"-Only", directory_to_save)
-                saveImageToFile(res_inverted, img_name, img_extension, current_color+"-Inverted", directory_to_save)
 
         # END IF loop
     # END FOR loop
