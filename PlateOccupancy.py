@@ -7,6 +7,7 @@ from pathlib import Path
 
 # pip3 install opencv-python
 # pip3 install matplotlib
+# pip3 install pandas
 
 # This function is intended to determine how much of the plate is unoccupied
 def calculateGreyPixels(img):
@@ -40,10 +41,6 @@ def calculateGreyPixels(img):
     print ("The amount of pixels associated with plate: " + str(plate_pixels_total))
     print ("The amount of plate that is unoccupied is " + str(grey_pixels))
 
-    pixel_counts = []
-    pixel_counts.append(('Plate', 10.0))
-    pixel_counts.append(('Table', 5.0))
-
     return grey_pixels
 
 # This function breaks down the image path to usable parts
@@ -73,14 +70,17 @@ def main():
 
     # Data sets of images
     original = cwd + '/images/'
-    
+
     column_names = ["ImageName", "PercentageUnoccupied"]
     df = pd.DataFrame(columns = column_names)
 
     for subdir, dirs, files in os.walk(original):
-        for file in files: 
+        for file in files:
+            # Skip hidden files
             if file.startswith('.'):
                 continue
+
+            # Build file's path (image's path)
             filepath = os.path.join(subdir, file)
 
             # Determine image name and file extension
@@ -89,7 +89,10 @@ def main():
             # Read image and return image & image's full path
             img, img_path = readImage(subdir, img_name, img_extension)
 
+            # Get percentage of plate unoccupied
             grey_pixels = calculateGreyPixels(img)
+
+            # Append to dataframe
             df = df.append({'ImageName': img_name, 'PercentageUnoccupied': grey_pixels}, ignore_index = True)
         # End FOR
     # End FOR
