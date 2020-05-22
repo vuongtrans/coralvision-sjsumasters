@@ -78,7 +78,9 @@ def main():
     df = pd.DataFrame(columns = column_names)
 
     for subdir, dirs, files in os.walk(original):
-        for file in files:
+        for file in files: 
+            if file.startswith('.'):
+                continue
             filepath = os.path.join(subdir, file)
 
             # Determine image name and file extension

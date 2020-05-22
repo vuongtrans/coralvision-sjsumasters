@@ -7,7 +7,7 @@ import time
 # This function reads in image given its name and type OR path
 def readImage(directory, name, extension):
     """ Returns the image """
-    image_path = directory + name + "." + extension
+    image_path = directory + "/" + name + "." + extension
     image = cv2.imread(image_path)
     return image, image_path
 
@@ -48,9 +48,10 @@ def displayImage(image):
     cv2.waitKey(100)
 
 # This function breaks down the image path to usable parts
-def decipherImageName(img_name):
+def decipherImageName(filepath):
     """ Returns the image's name and type """
-    img_name, img_extension = os.path.splitext(img_name)
+    filepath = os.path.basename(filepath)
+    img_name, img_extension = os.path.splitext(filepath)
     img_extension = img_extension.replace(".","")
     return img_name, img_extension
 
@@ -223,16 +224,19 @@ def main():
     original = cwd + '/images/'
 
     # Loop through each photo in selected directory
-    for file in os.listdir(original):
-        if file.endswith(".JPG"):
-
+    for subdir, dirs, files in os.walk(original):
+        for file in files:
+            if file.startswith('.'):
+                continue
+            filepath = os.path.join(subdir, file)
+            
             # Determine image name and file extension
-            img_name, img_extension = decipherImageName(file)
+            img_name, img_extension = decipherImageName(filepath)
 
             print ('>>> Begin: Converting image to various colorspaces <<<')
 
             # Read image and return image & image's full path
-            img, img_path = readImage(original, img_name, img_extension)
+            img, img_path = readImage(subdir, img_name, img_extension)
             original_img = img
 
             # Convert images to other colorspaces (HSV, XYZ)
