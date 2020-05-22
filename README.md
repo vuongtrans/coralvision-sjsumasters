@@ -3,6 +3,26 @@ Using Color Thresholding and Contouring to Understand Coral Reef Biodiversity
 
 This project utilizes two computer vision techniques - color thresholding and contouring - to extract organisms by color.
 
+- - - - - - - - - - - - - -
+Notes for PlateOccupancy.py
+- - - - - - - - - - - - - - 
+This module is intended solely to calculate how much of the plate is occupied.
+After cloning the repository, place all folders of images into /images/, the code will iterate through all subdirectories of /images/ and apply the calculation to each image. 
+
+The results will be saved to a csv file with the format:
+ImageName, PercentageOccupied
+<name of file>, 10
+<name of file>, 20
+   
+To run this code:
+*****************
+1. Execute the code by issuing: python3 PlateOccupancy.py
+
+- - - - - - - - - - - - - - - - - - - 
+Notes for coral-vision-sjsu-masters.py
+- - - - - - - - - - - - - - - - - - - 
+This module is intended solely to apply color thresholding and contouring to the images of the plate.
+
 To run this code:
 *****************
 1. This code runs better on Python 3
@@ -22,7 +42,7 @@ The code will generate the following directories:
 6. /<color>/Only --> Colorized images of binary images
 7. /<color>/Removed --> Results from removing colors by most dominant to least dominant
 
-In total, 43 directories will be created.
+In total, 43 directories will be created. Folders 2-7 will be created for each of the seven colors
 
 In addition, an elapsed time will be printed at the end of the code execution.
 "Elapsed time in seconds: <###>"
