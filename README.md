@@ -3,6 +3,10 @@ Using Color Thresholding and Contouring to Understand Coral Reef Biodiversity
 
 This project utilizes two computer vision techniques - color thresholding and contouring - to extract organisms by color.
 
+!!! Before running any of the modules !!!
+Please pip3 install: OpenCV, matplotlib, numpy, pandas.
+Python should had come preinstalled with Path, os, time libraries
+
 - - - - - - - - - - - - - -
 Notes for PlateOccupancy.py
 - - - - - - - - - - - - - - 
