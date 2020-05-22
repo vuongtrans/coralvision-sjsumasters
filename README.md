@@ -15,24 +15,24 @@ ImageName, PercentageOccupied
 <name of file>, 20
    
 To run this code:
-*****************
 1. Execute the code by issuing: python3 PlateOccupancy.py
 
+Results of the code:
+A results.csv file containing the plates' name including the percentage of the plate that is unoccupied.
+
 - - - - - - - - - - - - - - - - - - - 
-Notes for coral-vision-sjsu-masters.py
+Notes for CoralVisionSjsuMasters.py
 - - - - - - - - - - - - - - - - - - - 
 This module is intended solely to apply color thresholding and contouring to the images of the plate.
 
 To run this code:
-*****************
 1. This code runs better on Python 3
 2. Install the following Python libraries: numpy, OpenCV, matplotlib, os, time 
 3. Place images into a folder /images and place in the same directory as this Python file
    /images/
-4. Execute the code by issuing: python3 coral-vision-sjsu-masters.py
+4. Execute the code by issuing: python3 CoralVisionSjsuMasters.py
 
 Results of the code:
-********************
 The code will generate the following directories:
 1. /HSV/ --> Original images converted to HSV color space
 2. /<color>/Contour --> Contouring with no restrictions 
